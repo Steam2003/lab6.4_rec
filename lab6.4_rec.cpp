@@ -9,8 +9,7 @@ void print(double* a, int i, int N);
 int moreC(double* a, int N, double C, int i, int j);
 int find_last_fabs(double* a, int N, double max, int i, int l);
 void dob(double* a, int N, int l, double dobutok);
-void create3(double* a, double* b, int N, int l, int i);
-int create2(double* a, double* b, int N, int l, int i);
+int change(double* a, int N, int l, int i);
 
 int main()
 {
@@ -25,7 +24,6 @@ int main()
 	cout << "Введіть мінімальне значення масиву: "; cin >> Low;
 	cout << "Введіть максимальне значення масиву: "; cin >> Max;
 	double* a = new double[N];
-	double* b = new double[N];
 	cout << endl;
 	cout << "Рекурсивний" << endl;
 	create(a, N, 0, Low, Max);
@@ -34,16 +32,14 @@ int main()
 	cout << "Кількість елементів більших від С: " << moreC(a, N, C, 0, 0) << endl;
 	int l = find_last_fabs(a, N, a[0], 0, 0);
 	dob(a, N, l, 1);
-	l = create2(a, b, N, 0, 0);
-	create3(a, b, N, l, 0);
-	print(b, 0, N);
+	change(a, N, 0, 0);
+	print(a, 0, N);
 	cout << endl;
 	delete[] a;
-	delete[] b;
 }
 void create(double* a, int N, int i, double Low, double Max)             
 {
-	if (i <= N - 1)
+	if (i < N)
 	{
 		a[i] = (Max - Low) * rand() / RAND_MAX + Low;
 		create(a, N, ++i, Low, Max);                                           
@@ -51,7 +47,7 @@ void create(double* a, int N, int i, double Low, double Max)
 }
 void print(double* a, int i, int N)
 {
-	if (i <= N - 1)
+	if (i <N )
 	{
 		cout << setw(5) << a[i] << " ";
 		print(a, ++i, N);
@@ -59,7 +55,7 @@ void print(double* a, int i, int N)
 }
 int moreC(double* a, int N, double C, int i, int j)
 {
-	if (i<=N-1)
+	if (i<N)
 	{ 
 		if (a[i] > C)
 			++j;
@@ -71,7 +67,7 @@ int moreC(double* a, int N, double C, int i, int j)
 }
 int find_last_fabs(double* a, int N, double max, int i, int l)
 {
-	if (i<=N-1)
+	if (i<N)
 	{
 		if (fabs(max) <= fabs(a[i]))
 		{
@@ -86,7 +82,7 @@ int find_last_fabs(double* a, int N, double max, int i, int l)
 }
 void dob(double* a, int N, int l, double dobutok)
 {
-	if (l <= N - 1)
+	if (l < N)
 	{
 		dobutok *= a[l];
 		dob(a, N, ++l, dobutok);
@@ -95,31 +91,21 @@ void dob(double* a, int N, int l, double dobutok)
 		cout << "Добуток: " << dobutok << endl;
 
 }
-void create3(double* a, double* b, int N, int l, int i)
+int change(double* a, int N, int l, int i)
 {
-	if (i <= N - 1)
-	{
-		if (a[i] >= 0)
-		{
-			b[l] = a[i];
-			++l;
-		}
-		create3(a, b, N, l, ++i);
-	}
-}
-int create2(double* a, double* b, int N, int l, int i)
-{
-	if(i<=N-1)
+	if (i < N)
 	{
 		if (a[i] < 0)
 		{
-			b[l] = a[i];
+			double tmp = a[l];
+			a[l] = a[i];
+			a[i] = tmp;
 			++l;
 		}
-		create2(a, b, N, l, ++i);
+		change(a, N, l, ++i);
 	}
-else 
-return l;
+	else
+		return l;
 }
 
 

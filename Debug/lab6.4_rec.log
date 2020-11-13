@@ -1,5 +1,5 @@
 ﻿  lab6.4_rec.cpp
-D:\Student\IT-12\Patiuk\AP\lab_2\labs6\lab6.4_rec\lab6.4_rec.cpp(86): warning C4715: 'find_last_fabs': not all control paths return a value
-D:\Student\IT-12\Patiuk\AP\lab_2\labs6\lab6.4_rec\lab6.4_rec.cpp(71): warning C4715: 'moreC': not all control paths return a value
-D:\Student\IT-12\Patiuk\AP\lab_2\labs6\lab6.4_rec\lab6.4_rec.cpp(123): warning C4715: 'create2': not all control paths return a value
+D:\Student\IT-12\Patiuk\AP\lab_2\labs6\lab6.4_rec\lab6.4_rec.cpp(84): warning C4715: 'find_last_fabs': not all control paths return a value
+D:\Student\IT-12\Patiuk\AP\lab_2\labs6\lab6.4_rec\lab6.4_rec.cpp(69): warning C4715: 'moreC': not all control paths return a value
+D:\Student\IT-12\Patiuk\AP\lab_2\labs6\lab6.4_rec\lab6.4_rec.cpp(111): warning C4715: 'change': not all control paths return a value
   lab6.4_rec.vcxproj -> D:\Student\IT-12\Patiuk\AP\lab_2\labs6\lab6.4_rec\Debug\lab6.4_rec.exe
